@@ -1,0 +1,16 @@
+{
+  "name": "blood-bank-management-system",
+  "version": "1.0.0",
+  "description": "Blood Bank Management System - Full Stack Application",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+

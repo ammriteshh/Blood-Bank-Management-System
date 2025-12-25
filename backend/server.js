@@ -18,6 +18,21 @@ app.use(cors({
   credentials: true,
 }));
 
+// Root route
+app.get("/", (req, res) => {
+  res.json({
+    message: "Blood Bank Management System API",
+    version: "1.0.0",
+    endpoints: {
+      auth: "/api/auth",
+      donor: "/api/donor",
+      facility: "/api/facility",
+      admin: "/api/admin",
+      bloodLab: "/api/blood-lab",
+      hospital: "/api/hospital",
+    },
+  });
+});
 
 // 🧩 Routes
 
@@ -46,5 +61,11 @@ mongoose
   .then(() => console.log("MongoDB Connected ✅"))
   .catch((err) => console.log("MongoDB Error ❌", err));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT} 🚀`));
+// Export app for Vercel serverless functions
+export default app;
+
+// Only start server if not in serverless environment (Vercel)
+if (process.env.VERCEL !== "1") {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT} 🚀`));
+}

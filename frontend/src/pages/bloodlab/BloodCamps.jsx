@@ -63,7 +63,6 @@ const BloodCamps = () => {
 
   const token = localStorage.getItem("token");
   // Fixed API URL - removed /blood-lab if it doesn't exist
-  import { API_ENDPOINTS } from "../../config/api.js";
   const API_URL = API_ENDPOINTS.BLOOD_LAB;
 
   console.log("🔧 BloodCamps Component State:", {
